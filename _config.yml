@@ -5,8 +5,6 @@ language: ko
 timezone: Asia/Seoul
 
 # 배포 URL 설정
-# 사용자 페이지면 url: https://uu-marina.github.io , baseurl: ""
-# 프로젝트 페이지면 baseurl: "/레포이름"
 url: https://nameismain.github.io
 baseurl: ""
 
