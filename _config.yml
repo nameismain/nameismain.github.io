@@ -1,0 +1,42 @@
+# 사이트 기본 정보
+title: nameismain Github Blog
+description: 안녕하세요. nameismain의 GitHub 블로그입니다.
+language: ko
+timezone: Asia/Seoul
+
+# 배포 URL 설정
+# 사용자 페이지면 url: https://uu-marina.github.io , baseurl: ""
+# 프로젝트 페이지면 baseurl: "/레포이름"
+url: https://nameismain.github.io
+baseurl: ""
+
+# 연락처 및 프로필(템플릿에서 조건부로 표시)
+email: idid02@naver.com
+tistory_url: https://uumarina.tistory.com
+velog_url: https://velog.io/@nameismain/posts
+boj_id: nameismain
+
+# Tech Stack 배지
+stack:
+  - Figma
+  - Python
+  - Django
+  - Docker
+
+# 헤더와 GitHub 배지용 로컬 빌드 대비값
+github:
+  owner_name: nameismain
+  owner_url: https://nameismain.github.io
+
+# Jekyll 기본 설정(권장)
+markdown: kramdown
+permalink: pretty
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# 빌드에서 제외할 파일들
+exclude:
+  - README.md
+  - node_modules
+  - vendor
