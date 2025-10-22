@@ -5,50 +5,100 @@ layout: default
 <!-- ===== Global Dark Theme ===== -->
 <style>
 :root{
-  --bg:#0e1116; --panel:#121826; --text:#e5e7eb; --muted:#a1a1aa;
-  --line:#1f2937; --accent1:#93c5fd; --accent2:#f0abfc; --accent3:#fb7185;
+  --bg:#0e1116;        /* 페이지 배경 */
+  --panel:#121826;     /* 카드/패널 */
+  --text:#e5e7eb;      /* 본문 텍스트 */
+  --muted:#a1a1aa;     /* 보조 텍스트 */
+  --line:#1f2937;      /* 구분선 */
+  --accent1:#93c5fd;   /* 블루 포인트 */
+  --accent2:#f0abfc;   /* 라일락 포인트 */
+  --accent3:#fb7185;   /* 로즈 포인트 */
+  --glass:rgba(255,255,255,0.06);
 }
-html{scroll-behavior:smooth}
+
 body{
-  margin:0; background:var(--bg); color:var(--text);
+  background:var(--bg);
+  color:var(--text);
   font-family:"Segoe UI","Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;
-  line-height:1.8; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+  line-height:1.8;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
 }
-h1,h2,h3{color:var(--text); letter-spacing:-0.2px}
-h2{border-bottom:none; margin:0 0 .35em 0; font-weight:700}
-h3{color:#cbd5e1; font-weight:600}
-a{color:var(--accent1); text-decoration:none}
-a:hover{color:#bfdbfe}
-.wrap{max-width:980px; margin:0 auto; padding:0 20px}
-/* section separator */
-hr{height:2px; border:0; margin:2.2em 0; background:linear-gradient(90deg, rgba(147,197,253,.4), rgba(240,171,252,.45), rgba(251,113,133,.35)); border-radius:2px}
-/* cards */
-.card{background:linear-gradient(to bottom right, var(--panel), var(--bg)); border:1px solid var(--line); border-radius:16px; padding:20px; box-shadow:0 10px 30px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.02)}
-/* table */
-.table{width:100%; border-collapse:collapse; overflow:hidden; border-radius:12px; border:1px solid var(--line)}
-.table th,.table td{padding:12px 14px; text-align:center; font-size:15px; border-bottom:1px solid var(--line)}
-.table th{background:linear-gradient(90deg, rgba(147,197,253,.12), rgba(240,171,252,.12)); color:#e2e8f0; font-weight:700}
-.table tr:nth-child(even){background:rgba(255,255,255,.02)} .table tr:hover{background:rgba(147,197,253,.06)}
-/* badges */
-.badges{text-align:center}
+
+h1,h2,h3{ color:var(--text); letter-spacing:-0.2px; }
+h2{ border-bottom:none !important; margin:0 0 .35em 0 !important; font-weight:700; }
+h3{ color:#cbd5e1; font-weight:600; }
+
+a{ color:var(--accent1); text-decoration:none; }
+a:hover{ color:#bfdbfe; }
+
+.wrap{ max-width:980px; margin:0 auto; padding:0 20px; }
+
+hr{
+  height:2px; border:0; margin:2.2em 0;
+  background:linear-gradient(90deg, rgba(147,197,253,.4), rgba(240,171,252,.45), rgba(251,113,133,.35));
+  border-radius:2px;
+}
+
+.card{
+  background:linear-gradient( to bottom right, var(--panel), var(--bg) );
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:20px;
+  box-shadow:0 10px 30px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.02);
+}
+
+.table{
+  width:100%;
+  border-collapse:collapse;
+  overflow:hidden;
+  border-radius:12px;
+  border:1px solid var(--line);
+}
+.table th,.table td{
+  padding:12px 14px; text-align:center; font-size:15px;
+  border-bottom:1px solid var(--line);
+}
+.table th{
+  background:linear-gradient(90deg, rgba(147,197,253,.12), rgba(240,171,252,.12));
+  color:#e2e8f0; font-weight:700;
+}
+.table tr:nth-child(even){ background:rgba(255,255,255,0.02); }
+.table tr:hover{ background:rgba(147,197,253,0.06); }
+
+.badges{ text-align:center; }
 .badge{
-  display:inline-block; margin:6px; padding:10px 16px; font-size:14px; font-weight:700; letter-spacing:.2px;
-  color:#f3f4f6; border-radius:999px; background:linear-gradient(135deg, rgba(147,197,253,.22), rgba(240,171,252,.24));
-  border:1px solid rgba(148,163,184,.35); box-shadow:0 8px 20px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.06);
-  backdrop-filter:saturate(120%) blur(2px); transition:transform .25s ease, box-shadow .25s ease, background .25s ease, border .25s ease
+  display:inline-block; margin:6px; padding:10px 16px;
+  font-size:14px; font-weight:700; letter-spacing:.2px;
+  color:#f3f4f6; border-radius:999px;
+  background:linear-gradient(135deg, rgba(147,197,253,.22), rgba(240,171,252,.24));
+  border:1px solid rgba(148,163,184,.35);
+  box-shadow:0 8px 20px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.06);
+  backdrop-filter:saturate(120%) blur(2px);
+  transition:transform .25s ease, box-shadow .25s ease, background .25s ease, border .25s ease;
 }
-.badge:hover{transform:translateY(-3px); background:linear-gradient(135deg, rgba(147,197,253,.35), rgba(240,171,252,.38)); box-shadow:0 14px 30px rgba(0,0,0,.5); border-color:rgba(148,163,184,.6)}
-/* text utils */
-.lead{font-size:16px; color:#d1d5db} .muted{color:#a1a1aa}
-/* spacing */
-.section{margin:1.2em 0}
+.badge:hover{
+  transform:translateY(-3px);
+  background:linear-gradient(135deg, rgba(147,197,253,.35), rgba(240,171,252,.38));
+  box-shadow:0 14px 30px rgba(0,0,0,.5);
+  border-color:rgba(148,163,184,.6);
+}
+
+.lead{ font-size:16px; color:#d1d5db; }
+.muted{ color:var(--muted); }
+
+/* header subtitle */
+.subtitle{ color:#cbd5e1; }
+
+/* section spacing inside wrapper only */
+.section{ margin:1.2em 0; }
 </style>
 
 <div class="wrap">
 
   <!-- Header -->
-  <div align="center" class="section">
-    <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f172a,100:111827&height=210&text={{ site.github.owner_name | default: 'username' | uri_escape }}&fontColor=ffffff&fontSize=60&fontAlignY=40" alt="header" />
+  <div class="section" align="center">
+    <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f172a,100:111827&height=210&text={{ site.github.owner_name | default: 'username' | uri_escape }}&fontColor=ffffff&fontSize=60&fontAlignY=40" alt="header">
     <h3 class="subtitle">{{ site.title | default: "GitHub Blog" }}</h3>
     <div style="margin-top:8px;">
       <a href="#about">About</a> · <a href="#projects">Projects</a> · <a href="#posts">Posts</a> · <a href="#stats">Stats</a> · <a href="#contact">Contact</a>
@@ -58,11 +108,11 @@ hr{height:2px; border:0; margin:2.2em 0; background:linear-gradient(90deg, rgba(
   <hr>
 
   <!-- About -->
-  <div id="about" align="center" class="section">
+  <div id="about" class="section" align="center">
     <h2 style="color:var(--accent1);">About</h2>
     <p class="lead">{{ site.description }}</p>
     <div class="card" style="text-align:left;">
-      <!-- 소개가 필요하면 여기에 작성 -->
+      nameismain ..
     </div>
   </div>
 
@@ -116,7 +166,7 @@ hr{height:2px; border:0; margin:2.2em 0; background:linear-gradient(90deg, rgba(
     <h2 style="color:var(--accent1);">Baekjoon Tier</h2>
     <div class="card" style="text-align:center;">
       <a href="https://www.acmicpc.net/user/{{ site.boj_id }}" target="_blank" rel="noopener">
-        <img src="https://mazassumnida.wtf/api/generate_badge?boj={{ site.boj_id }}" alt="baekjoon-tier" />
+        <img src="https://mazassumnida.wtf/api/generate_badge?boj={{ site.boj_id }}" alt="baekjoon-tier">
       </a>
       <div style="margin-top:10px;">
         <a href="https://solved.ac/profile/{{ site.boj_id }}" target="_blank" rel="noopener">solved.ac 프로필 보기</a>
@@ -131,8 +181,8 @@ hr{height:2px; border:0; margin:2.2em 0; background:linear-gradient(90deg, rgba(
   {% if gh_user %}
   <div id="stats" class="section" align="center">
     <h2 style="color:var(--accent2);">Stats</h2>
-    <img src="https://github-readme-stats.vercel.app/api?username={{ gh_user | uri_escape }}&bg_color=00000000&title_color=93c5fd&text_color=e5e7eb&icon_color=f472b6&show_icons=true&hide_border=true" alt="stats" />
-    <img src="https://github-readme-stats.vercel.app/api/top-langs/?username={{ gh_user | uri_escape }}&layout=compact&bg_color=00000000&title_color=93c5fd&text_color=e5e7eb&hide_border=true" alt="top-langs" />
+    <img src="https://github-readme-stats.vercel.app/api?username={{ gh_user | uri_escape }}&bg_color=00000000&title_color=93c5fd&text_color=e5e7eb&icon_color=f472b6&show_icons=true&hide_border=true" alt="stats">
+    <img src="https://github-readme-stats.vercel.app/api/top-langs/?username={{ gh_user | uri_escape }}&layout=compact&bg_color=00000000&title_color=93c5fd&text_color=e5e7eb&hide_border=true" alt="top-langs">
   </div>
   <hr>
   {% endif %}
@@ -145,7 +195,7 @@ hr{height:2px; border:0; margin:2.2em 0; background:linear-gradient(90deg, rgba(
       {% if site.tistory_url %}<a href="{{ site.tistory_url }}"><span class="badge" style="background:linear-gradient(135deg, rgba(251,113,133,.38), rgba(244,114,182,.34));">Tistory</span></a>{% endif %}
       {% if site.boj_id %}<a href="https://www.acmicpc.net/user/{{ site.boj_id }}"><span class="badge" style="background:linear-gradient(135deg, rgba(147,197,253,.35), rgba(125,211,252,.28));">Baekjoon</span></a>{% endif %}
       {% if site.velog_url %}<a href="{{ site.velog_url }}"><span class="badge" style="background:linear-gradient(135deg, rgba(147,197,253,.22), rgba(240,171,252,.24));">Velog</span></a>{% endif %}
-      {% if site.email %}<a href="mailto:{{ site.email }}"><span class="badge">Email</span></a>{% endif %}
+      {% if site.email %}<a href="mailto:{% raw %}{{ site.email }}{% endraw %}"><span class="badge">Email</span></a>{% endif %}
     </div>
   </div>
 
