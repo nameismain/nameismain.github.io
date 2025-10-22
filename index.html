@@ -97,8 +97,8 @@ hr{
 <div class="wrap">
 
   <!-- Header -->
-  <div class="section" align="center">
-    <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f172a,100:111827&height=210&text={{ site.github.owner_name | default: 'username' | uri_escape }}&fontColor=ffffff&fontSize=60&fontAlignY=40" alt="header">
+  <div align="center" class="section">
+    <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f172a,100:111827&height=210&text={{ site.github.owner_name | default: 'username' | uri_escape }}&fontColor=ffffff&fontSize=60&fontAlignY=40" alt="header" />
     <h3 class="subtitle">{{ site.title | default: "GitHub Blog" }}</h3>
     <div style="margin-top:8px;">
       <a href="#about">About</a> · <a href="#projects">Projects</a> · <a href="#posts">Posts</a> · <a href="#stats">Stats</a> · <a href="#contact">Contact</a>
@@ -108,11 +108,11 @@ hr{
   <hr>
 
   <!-- About -->
-  <div id="about" class="section" align="center">
+  <div id="about" align="center" class="section">
     <h2 style="color:var(--accent1);">About</h2>
     <p class="lead">{{ site.description }}</p>
     <div class="card" style="text-align:left;">
-      안녕하세요. nameismain의 GitHub 블로그입니다.
+      <!-- 소개가 필요하면 여기에 작성 -->
     </div>
   </div>
 
@@ -166,7 +166,7 @@ hr{
     <h2 style="color:var(--accent1);">Baekjoon Tier</h2>
     <div class="card" style="text-align:center;">
       <a href="https://www.acmicpc.net/user/{{ site.boj_id }}" target="_blank" rel="noopener">
-        <img src="https://mazassumnida.wtf/api/generate_badge?boj={{ site.boj_id }}" alt="baekjoon-tier">
+        <img src="https://mazassumnida.wtf/api/generate_badge?boj={{ site.boj_id }}" alt="baekjoon-tier" />
       </a>
       <div style="margin-top:10px;">
         <a href="https://solved.ac/profile/{{ site.boj_id }}" target="_blank" rel="noopener">solved.ac 프로필 보기</a>
@@ -181,8 +181,8 @@ hr{
   {% if gh_user %}
   <div id="stats" class="section" align="center">
     <h2 style="color:var(--accent2);">Stats</h2>
-    <img src="https://github-readme-stats.vercel.app/api?username={{ gh_user | uri_escape }}&bg_color=00000000&title_color=93c5fd&text_color=e5e7eb&icon_color=f472b6&show_icons=true&hide_border=true" alt="stats">
-    <img src="https://github-readme-stats.vercel.app/api/top-langs/?username={{ gh_user | uri_escape }}&layout=compact&bg_color=00000000&title_color=93c5fd&text_color=e5e7eb&hide_border=true" alt="top-langs">
+    <img src="https://github-readme-stats.vercel.app/api?username={{ gh_user | uri_escape }}&bg_color=00000000&title_color=93c5fd&text_color=e5e7eb&icon_color=f472b6&show_icons=true&hide_border=true" alt="stats" />
+    <img src="https://github-readme-stats.vercel.app/api/top-langs/?username={{ gh_user | uri_escape }}&layout=compact&bg_color=00000000&title_color=93c5fd&text_color=e5e7eb&hide_border=true" alt="top-langs" />
   </div>
   <hr>
   {% endif %}
@@ -195,7 +195,7 @@ hr{
       {% if site.tistory_url %}<a href="{{ site.tistory_url }}"><span class="badge" style="background:linear-gradient(135deg, rgba(251,113,133,.38), rgba(244,114,182,.34));">Tistory</span></a>{% endif %}
       {% if site.boj_id %}<a href="https://www.acmicpc.net/user/{{ site.boj_id }}"><span class="badge" style="background:linear-gradient(135deg, rgba(147,197,253,.35), rgba(125,211,252,.28));">Baekjoon</span></a>{% endif %}
       {% if site.velog_url %}<a href="{{ site.velog_url }}"><span class="badge" style="background:linear-gradient(135deg, rgba(147,197,253,.22), rgba(240,171,252,.24));">Velog</span></a>{% endif %}
-      {% if site.email %}<a href="mailto:{% raw %}{{ site.email }}{% endraw %}"><span class="badge">Email</span></a>{% endif %}
+      {% if site.email %}<a href="mailto:{{ site.email }}"><span class="badge">Email</span></a>{% endif %}
     </div>
   </div>
 
