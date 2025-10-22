@@ -2,18 +2,20 @@
 layout: default
 ---
 
+<!-- ===== Global Dark Theme ===== -->
 <style>
 :root{
-  --bg:#0e1116;
-  --panel:#121826;
-  --text:#e5e7eb;
-  --muted:#a1a1aa;
-  --line:#1f2937;
-  --accent1:#93c5fd;
-  --accent2:#f0abfc;
-  --accent3:#fb7185;
+  --bg:#0e1116;        /* 페이지 배경 */
+  --panel:#121826;     /* 카드/패널 */
+  --text:#e5e7eb;      /* 본문 텍스트 */
+  --muted:#a1a1aa;     /* 보조 텍스트 */
+  --line:#1f2937;      /* 구분선 */
+  --accent1:#93c5fd;   /* 블루 포인트 */
+  --accent2:#f0abfc;   /* 라일락 포인트 */
+  --accent3:#fb7185;   /* 로즈 포인트 */
   --glass:rgba(255,255,255,0.06);
 }
+
 body{
   background:var(--bg);
   color:var(--text);
@@ -22,24 +24,30 @@ body{
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
 }
+
 h1,h2,h3{ color:var(--text); letter-spacing:-0.2px; }
 h2{ border-bottom:none !important; margin:0 0 .35em 0 !important; font-weight:700; }
 h3{ color:#cbd5e1; font-weight:600; }
+
 a{ color:var(--accent1); text-decoration:none; }
 a:hover{ color:#bfdbfe; }
+
 .wrap{ max-width:980px; margin:0 auto; padding:0 20px; }
+
 hr{
   height:2px; border:0; margin:2.2em 0;
   background:linear-gradient(90deg, rgba(147,197,253,.4), rgba(240,171,252,.45), rgba(251,113,133,.35));
   border-radius:2px;
 }
+
 .card{
-  background:linear-gradient(to bottom right, var(--panel), var(--bg));
+  background:linear-gradient( to bottom right, var(--panel), var(--bg) );
   border:1px solid var(--line);
   border-radius:16px;
   padding:20px;
   box-shadow:0 10px 30px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.02);
 }
+
 .table{
   width:100%;
   border-collapse:collapse;
@@ -57,6 +65,7 @@ hr{
 }
 .table tr:nth-child(even){ background:rgba(255,255,255,0.02); }
 .table tr:hover{ background:rgba(147,197,253,0.06); }
+
 .badges{ text-align:center; }
 .badge{
   display:inline-block; margin:6px; padding:10px 16px;
@@ -74,12 +83,15 @@ hr{
   box-shadow:0 14px 30px rgba(0,0,0,.5);
   border-color:rgba(148,163,184,.6);
 }
+
 .lead{ font-size:16px; color:#d1d5db; }
 .muted{ color:var(--muted); }
+
+/* header subtitle */
 .subtitle{ color:#cbd5e1; }
+
+/* section spacing inside wrapper only */
 .section{ margin:1.2em 0; }
-.mininav a{ color:#cbd5e1; margin:0 10px; font-weight:600; }
-.mininav a:hover{ color:#e5e7eb; }
 </style>
 
 <div class="wrap">
@@ -88,10 +100,11 @@ hr{
   <div align="center" class="section">
     <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f172a,100:111827&height=210&text={{ site.github.owner_name | default: 'username' | uri_escape }}&fontColor=ffffff&fontSize=60&fontAlignY=40" alt="header" />
     <h3 class="subtitle">{{ site.title | default: "GitHub Blog" }}</h3>
-    <div class="mininav" style="margin-top:8px;">
-      <a href="#about">About</a> | <a href="#projects">Projects</a> | <a href="#posts">Posts</a> | <a href="#stats">Stats</a> | <a href="#contact">Contact</a>
+    <div style="margin-top:8px;">
+      <a href="#about">About</a> · <a href="#projects">Projects</a> · <a href="#posts">Posts</a> · <a href="#stats">Stats</a> · <a href="#contact">Contact</a>
     </div>
   </div>
+
   <hr>
 
   <!-- About -->
@@ -99,9 +112,10 @@ hr{
     <h2 style="color:var(--accent1);">About</h2>
     <p class="lead">{{ site.description }}</p>
     <div class="card" style="text-align:left;">
-      <!-- 필요 시 소개 내용을 여기에 추가 -->
+      <!-- 소개가 필요하면 여기에 작성 -->
     </div>
   </div>
+
   <hr>
 
   <!-- Projects -->
@@ -109,10 +123,11 @@ hr{
     <h2 style="color:var(--accent2);">Pinned Projects</h2>
     <div class="card">
       <ul style="padding-left:18px;">
-        <!-- 프로젝트 링크 항목을 여기에 추가 -->
+        <!-- 프로젝트 링크를 여기에 추가 -->
       </ul>
     </div>
   </div>
+
   <hr>
 
   <!-- Tech Stack -->
@@ -126,6 +141,7 @@ hr{
       {% endif %}
     </div>
   </div>
+
   <hr>
 
   <!-- Posts -->
@@ -141,9 +157,10 @@ hr{
       {% endfor %}
     </table>
   </div>
+
   <hr>
 
-  <!-- Profiles: Baekjoon Tier -->
+  <!-- Baekjoon Tier -->
   {% if site.boj_id %}
   <div class="section" align="center">
     <h2 style="color:var(--accent1);">Baekjoon Tier</h2>
@@ -162,17 +179,15 @@ hr{
   <!-- Stats -->
   {% assign gh_user = site.stats_username | default: site.github.owner_name | default: site.github.repository_owner | default: nil %}
   {% if gh_user %}
-    <div id="stats" class="section" align="center">
+  <div id="stats" class="section" align="center">
     <h2 style="color:var(--accent2);">Stats</h2>
-    <div class="card" style="text-align:center;">
-      <img src="https://github-readme-stats.vercel.app/api?username={{ gh_user | uri_escape }}&bg_color=00000000&title_color=93c5fd&text_color=e5e7eb&icon_color=f472b6&show_icons=true&hide_border=true" alt="github-stats" />
-      <img src="https://github-readme-stats.vercel.app/api/top-langs/?username={{ gh_user | uri_escape }}&layout=compact&bg_color=00000000&title_color=93c5fd&text_color=e5e7eb&hide_border=true" alt="top-langs" />
-    </div>
+    <img src="https://github-readme-stats.vercel.app/api?username={{ gh_user | uri_escape }}&bg_color=00000000&title_color=93c5fd&text_color=e5e7eb&icon_color=f472b6&show_icons=true&hide_border=true" alt="stats" />
+    <img src="https://github-readme-stats.vercel.app/api/top-langs/?username={{ gh_user | uri_escape }}&layout=compact&bg_color=00000000&title_color=93c5fd&text_color=e5e7eb&hide_border=true" alt="top-langs" />
   </div>
   <hr>
   {% endif %}
 
-  <!-- Contact / Links -->
+  <!-- Contact -->
   <div id="contact" class="section" align="center">
     <h2 style="color:var(--accent1);">Contact</h2>
     <div class="badges">
@@ -180,7 +195,7 @@ hr{
       {% if site.tistory_url %}<a href="{{ site.tistory_url }}"><span class="badge" style="background:linear-gradient(135deg, rgba(251,113,133,.38), rgba(244,114,182,.34));">Tistory</span></a>{% endif %}
       {% if site.boj_id %}<a href="https://www.acmicpc.net/user/{{ site.boj_id }}"><span class="badge" style="background:linear-gradient(135deg, rgba(147,197,253,.35), rgba(125,211,252,.28));">Baekjoon</span></a>{% endif %}
       {% if site.velog_url %}<a href="{{ site.velog_url }}"><span class="badge" style="background:linear-gradient(135deg, rgba(147,197,253,.22), rgba(240,171,252,.24));">Velog</span></a>{% endif %}
-      {% if site.email %}<a href="mailto:{% raw %}{{ site.email }}{% endraw %}"><span class="badge">Email</span></a>{% endif %}
+      {% if site.email %}<a href="mailto:{{ site.email }}"><span class="badge">Email</span></a>{% endif %}
     </div>
   </div>
 
