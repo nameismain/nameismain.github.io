@@ -92,13 +92,18 @@ hr{
 
 /* section spacing inside wrapper only */
 .section{ margin:1.2em 0; }
+
+img{background-color:transparent!important;}
+img[src*="github-readme-stats.vercel.app"]{background-color:transparent!important;}
+img[alt="stats"],img[alt="top-langs"]{background-color:transparent!important;}
+
 </style>
 
 <div class="wrap">
 
   <!-- Header -->
   <div align="center" class="section">
-    <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f172a,100:111827&height=210&text={{ site.github.owner_name | default: 'username' | uri_escape }}&fontColor=ffffff&fontSize=60&fontAlignY=40" alt="header" />
+    <img src="https://capsule-render.vercel.app/api?type=waving&color=0:9dd7f9,100:f4a4c0&height=210&text={{ site.github.owner_name | default: 'username' | uri_escape }}&fontColor=111827&fontSize=60&fontAlignY=40&animation=twinkling&t={{ site.time | date: '%s' }}" alt="header">
     <h3 class="subtitle">{{ site.title | default: "GitHub Blog" }}</h3>
     <div style="margin-top:8px;">
       <a href="#about">About</a> · <a href="#projects">Projects</a> · <a href="#posts">Posts</a> · <a href="#stats">Stats</a> · <a href="#contact">Contact</a>
@@ -181,8 +186,8 @@ hr{
   {% if gh_user %}
   <div id="stats" class="section" align="center">
     <h2 style="color:var(--accent2);">Stats</h2>
-    <img src="https://github-readme-stats.vercel.app/api?username={{ gh_user | uri_escape }}&bg_color=00000000&title_color=93c5fd&text_color=e5e7eb&icon_color=f472b6&show_icons=true&hide_border=true" alt="stats" />
-    <img src="https://github-readme-stats.vercel.app/api/top-langs/?username={{ gh_user | uri_escape }}&layout=compact&bg_color=00000000&title_color=93c5fd&text_color=e5e7eb&hide_border=true" alt="top-langs" />
+    <img src="https://github-readme-stats.vercel.app/api?username={{ gh_user | uri_escape }}&theme=transparent&title_color=93c5fd&text_color=e5e7eb&icon_color=f472b6&hide_border=true&v=1" alt="stats" />
+    <img src="https://github-readme-stats.vercel.app/api/top-langs/?username={{ gh_user | uri_escape }}&layout=compact&theme=transparent&title_color=93c5fd&text_color=e5e7eb&hide_border=true&v=1" alt="top-langs" />
   </div>
   <hr>
   {% endif %}
