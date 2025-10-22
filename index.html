@@ -93,10 +93,31 @@ hr{
 /* section spacing inside wrapper only */
 .section{ margin:1.2em 0; }
 
-img{background-color:transparent!important;}
-img[src*="github-readme-stats.vercel.app"]{background-color:transparent!important;}
-img[alt="stats"],img[alt="top-langs"]{background-color:transparent!important;}
+/* 이미지 배경/사이즈 보정 (외부 SVG 포함) */
+img{ background-color:transparent !important; display:block; max-width:100%; height:auto; }
+img[src*="github-readme-stats.vercel.app"]{ background-color:transparent !important; }
+img[alt="stats"],img[alt="top-langs"]{ background-color:transparent !important; }
 
+/* Latest Posts 테이블 다크 오버라이드 */
+#posts .table,
+#posts .table th,
+#posts .table td,
+.markdown-body #posts table,
+.markdown-body #posts th,
+.markdown-body #posts td{
+  background:transparent !important;
+  color:var(--text) !important;
+  border-color:var(--line) !important;
+}
+#posts .table th{
+  background:linear-gradient(90deg, rgba(147,197,253,.12), rgba(240,171,252,.12)) !important;
+  color:#e2e8f0 !important;
+}
+#posts .table tr:nth-child(odd){ background:rgba(255,255,255,.02) !important; }
+#posts .table tr:nth-child(even){ background:rgba(147,197,253,.06) !important; }
+#posts .table tr:hover{ background:rgba(147,197,253,.12) !important; }
+#posts .table a{ color:var(--accent1) !important; text-decoration:none !important; }
+#posts .table a:hover{ color:#bfdbfe !important; }
 </style>
 
 <div class="wrap">
