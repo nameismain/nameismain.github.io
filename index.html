@@ -5,14 +5,14 @@ layout: default
 <!-- ===== Global Dark Theme ===== -->
 <style>
 :root{
-  --bg:#0e1116;        /* page background */
-  --panel:#121826;     /* card/panel */
-  --text:#e5e7eb;      /* body text */
-  --muted:#a1a1aa;     /* secondary text */
-  --line:#1f2937;      /* divider */
-  --accent1:#93c5fd;   /* blue accent */
-  --accent2:#f0abfc;   /* lilac accent */
-  --accent3:#fb7185;   /* rose accent */
+  --bg:#0e1116;        /* 페이지 배경 */
+  --panel:#121826;     /* 카드/패널 */
+  --text:#e5e7eb;      /* 본문 텍스트 */
+  --muted:#a1a1aa;     /* 보조 텍스트 */
+  --line:#1f2937;      /* 구분선 */
+  --accent1:#93c5fd;   /* 블루 포인트 */
+  --accent2:#f0abfc;   /* 라일락 포인트 */
+  --accent3:#fb7185;   /* 로즈 포인트 */
   --glass:rgba(255,255,255,0.06);
 }
 
@@ -86,65 +86,69 @@ hr{
 
 .lead{ font-size:16px; color:#d1d5db; }
 .muted{ color:var(--muted); }
+
+/* header subtitle */
 .subtitle{ color:#cbd5e1; }
 
-/* image background transparency (external SVGs too) */
-img{ background-color:transparent !important; display:block; max-width:100%; height:auto; }
-img[src*="github-readme-stats.vercel.app"]{ background-color:transparent !important; }
-img[alt="stats"],img[alt="top-langs"]{ background-color:transparent !important; }
+/* section spacing inside wrapper only */
+.section{ margin:1.2em 0; }
 
-/* Latest Posts table: dark + readability + alignment */
+img{background-color:transparent!important;}
+img[src*="github-readme-stats.vercel.app"]{background-color:transparent!important;}
+img[alt="stats"],img[alt="top-langs"]{background-color:transparent!important;}
+
+/* Latest Posts table — dark override */
 #posts .table,
-#posts .table th,#posts .table td,
-.markdown-body #posts table,.markdown-body #posts th,.markdown-body #posts td{
-  background:transparent !important; color:var(--text) !important; border-color:var(--line) !important;
+#posts .table th,
+#posts .table td,
+.markdown-body #posts table,
+.markdown-body #posts th,
+.markdown-body #posts td{
+  background:transparent !important;
+  color:var(--text) !important;
+  border-color:var(--line) !important;
 }
-#posts .table th{ background:linear-gradient(90deg, rgba(147,197,253,.12), rgba(240,171,252,.12)) !important; color:#e2e8f0 !important; }
+
+#posts .table th{
+  background:linear-gradient(90deg, rgba(147,197,253,.12), rgba(240,171,252,.12)) !important;
+  color:#e2e8f0 !important;
+}
+
 #posts .table tr:nth-child(odd){ background:rgba(255,255,255,.02) !important; }
 #posts .table tr:nth-child(even){ background:rgba(147,197,253,.06) !important; }
-#posts .table tr:hover{ background:rgba(147,197,253,.12) !important; }
-#posts .table th,#posts .table td{ text-align:left !important; }
-#posts .table th:first-child,#posts .table td:first-child{ text-align:center !important; width:120px; white-space:nowrap; }
-#posts .table a{ color:var(--accent1) !important; }
+
+#posts .table a{ color:var(--accent1) !important; text-decoration:none !important; }
 #posts .table a:hover{ color:#bfdbfe !important; }
 
-/* alignment: header/tech/stats/contact centered; about/projects/posts left */
-.section{ margin:1.2em 0; }
-.section.header,.subtitle,#stats,#contact,.badges{ text-align:center !important; }
-#about,#projects,#posts{ text-align:left !important; }
-
-/* About accordion */
-.accordion{
+/* stacked subcards */
+.subcard{
+  margin:12px 0;
+  padding:14px 16px;
   border:1px solid var(--line);
   border-radius:12px;
   background:linear-gradient(to bottom right, var(--panel), var(--bg));
-  margin:10px 0;
+  box-shadow:0 6px 18px rgba(0,0,0,0.28), inset 0 1px 0 rgba(255,255,255,0.03);
 }
-.accordion summary{
-  cursor:pointer;
-  padding:12px 14px;
+.subcard h3{
+  margin:0 0 8px 0;
   font-weight:700;
   color:#e2e8f0;
-  list-style:none;
 }
-.accordion summary::-webkit-details-marker{ display:none; }
-.accordion[open] summary{
-  background:linear-gradient(90deg, rgba(147,197,253,.12), rgba(240,171,252,.12));
+.subcard ul{
+  margin:0;
+  padding-left:18px;
 }
-.accordion .inner{
-  padding:12px 16px;
-  border-top:1px solid var(--line);
+.subcard li{
+  margin:4px 0;
 }
-.accordion ul{ padding-left:18px; margin:0; }
-.accordion li{ margin:6px 0; }
 </style>
 
 <div class="wrap">
 
   <!-- Header -->
-  <div align="center" class="section header">
-    <img src="https://capsule-render.vercel.app/api?type=waving&color=0:9dd7f9,100:f4a4c0&height=210&text=Minjin%20Kim&fontColor=111827&fontSize=60&fontAlignY=40&animation=twinkling&t={{ site.time | date: '%s' }}" alt="header">
-    <h3 class="subtitle">{{ site.title | default: "GitHub Blog" }}</h3>
+  <div align="center" class="section">
+    <img src="https://capsule-render.vercel.app/api?type=waving&color=0:9dd7f9,100:f4a4c0&height=210&text=Minjin Kim&fontColor=111827&fontSize=60&fontAlignY=40&animation=twinkling&t={{ site.time | date: '%s' }}" alt="header">
+    <h3 class="subtitle">🎓  B.S. in Information Systems at Hanyang University</h3>
     <div style="margin-top:8px;">
       <a href="#about">About</a> · <a href="#projects">Projects</a> · <a href="#posts">Posts</a> · <a href="#stats">Stats</a> · <a href="#contact">Contact</a>
     </div>
@@ -155,60 +159,39 @@ img[alt="stats"],img[alt="top-langs"]{ background-color:transparent !important; 
   <!-- About -->
   <div id="about" align="center" class="section">
     <h2 style="color:var(--accent1);">About</h2>
-    <p class="lead">{{ site.description }}</p>
+    <p class="lead">Security-minded backend developer in training: ethical hacking (CTFs, web security) and server-side engineering (APIs, data, networking).</p>
     <div class="card" style="text-align:left;">
-
-      <!-- Education -->
-      <details class="accordion">
-        <summary>Education</summary>
-        <div class="inner">
-          <ul>
-            <li><b>Hanyang University</b>, B.S. in Information Systems (2023-)</li>
-          </ul>
-        </div>
-      </details>
-
-      <!-- Awards -->
-      <details class="accordion">
-        <summary>Awards</summary>
-        <div class="inner">
-          <ul>
-            <li>HYU Forif Hackathon, Top prize (2025) — 블록체인 숲</li>
-          </ul>
-        </div>
-      </details>
-
-      <!-- Publications -->
-      <details class="accordion">
-        <summary>Publications</summary>
-        <div class="inner">
-          <ul>
-            <li>Kim, M., et al. “Paper Title.” Conference/Journal, YYYY.</li>
-          </ul>
-        </div>
-      </details>
-
-      <!-- Patents -->
-      <details class="accordion">
-        <summary>Patents</summary>
-        <div class="inner">
-          <ul>
-            <li>Patent Title, Application/Registration No., YYYY.</li>
-          </ul>
-        </div>
-      </details>
-
-      <!-- Work Experience -->
-      <details class="accordion">
-        <summary>Work Experience</summary>
-        <div class="inner">
-          <ul>
-            <li><b>Company Name</b>, Role (YYYY.MM–YYYY.MM) — Key achievements</li>
-            <li><b>Internship</b>, Role (YYYY.MM–YYYY.MM) — Responsibilities</li>
-          </ul>
-        </div>
-      </details>
-
+      <div class="subcard">
+        <h3>Education</h3>
+        <ul>
+          <li><b>Hanyang University</b>, B.S. in Information Systems (2023-present)</li>
+        </ul>
+      </div>
+      <div class="subcard">
+        <h3>Awards</h3>
+        <ul>
+          <li>HYU Forif Hackathon, Top Prize (2025-1) — BlockChain Forest</li>
+        </ul>
+      </div>
+      <div class="subcard">
+        <h3>Publications</h3>
+        <ul>
+          <li>Kim, M., et al. "Paper Title." Conference/Journal, YYYY.</li>
+        </ul>
+      </div>
+      <div class="subcard">
+        <h3>Patents</h3>
+        <ul>
+          <li>Patent Title, Application/Registration No., YYYY.</li>
+        </ul>
+      </div>
+      <div class="subcard">
+        <h3>Work Experience</h3>
+        <ul>
+          <li><b>Company Name</b>, Role (YYYY.MM-YYYY.MM) — key achievements</li>
+          <li><b>Internship</b>, Role (YYYY.MM-YYYY.MM) — responsibilities</li>
+        </ul>
+      </div>
     </div>
   </div>
 
@@ -219,7 +202,7 @@ img[alt="stats"],img[alt="top-langs"]{ background-color:transparent !important; 
     <h2 style="color:var(--accent2);">Pinned Projects</h2>
     <div class="card">
       <ul style="padding-left:18px;">
-        <!-- Add project links here -->
+        <!-- 프로젝트 링크를 여기에 추가 -->
       </ul>
     </div>
   </div>
@@ -262,10 +245,10 @@ img[alt="stats"],img[alt="top-langs"]{ background-color:transparent !important; 
     <h2 style="color:var(--accent1);">Baekjoon Tier</h2>
     <div class="card" style="text-align:center;">
       <a href="https://www.acmicpc.net/user/{{ site.boj_id }}" target="_blank" rel="noopener">
-        <img src="https://mazassumnida.wtf/api/generate_badge?boj={{ site.boj_id }}" alt="baekjoon-tier">
+        <img src="https://mazassumnida.wtf/api/generate_badge?boj={{ site.boj_id }}" alt="baekjoon-tier" />
       </a>
       <div style="margin-top:10px;">
-        <a href="https://solved.ac/profile/{{ site.boj_id }}" target="_blank" rel="noopener">View profile on solved.ac</a>
+        <a href="https://solved.ac/profile/{{ site.boj_id }}" target="_blank" rel="noopener">solved.ac 프로필 보기</a>
       </div>
     </div>
   </div>
@@ -277,8 +260,8 @@ img[alt="stats"],img[alt="top-langs"]{ background-color:transparent !important; 
   {% if gh_user %}
   <div id="stats" class="section" align="center">
     <h2 style="color:var(--accent2);">Stats</h2>
-    <img src="https://github-readme-stats.vercel.app/api?username={{ gh_user | uri_escape }}&theme=transparent&title_color=93c5fd&text_color=e5e7eb&icon_color=f472b6&hide_border=true&v=1" alt="stats">
-    <img src="https://github-readme-stats.vercel.app/api/top-langs/?username={{ gh_user | uri_escape }}&layout=compact&theme=transparent&title_color=93c5fd&text_color=e5e7eb&hide_border=true&v=1" alt="top-langs">
+    <img src="https://github-readme-stats.vercel.app/api?username={{ gh_user | uri_escape }}&theme=transparent&title_color=93c5fd&text_color=e5e7eb&icon_color=f472b6&hide_border=true&v=1" alt="stats" />
+    <img src="https://github-readme-stats.vercel.app/api/top-langs/?username={{ gh_user | uri_escape }}&layout=compact&theme=transparent&title_color=93c5fd&text_color=e5e7eb&hide_border=true&v=1" alt="top-langs" />
   </div>
   <hr>
   {% endif %}
